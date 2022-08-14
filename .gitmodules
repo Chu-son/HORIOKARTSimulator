@@ -1,0 +1,10 @@
+[submodule "Assets/vtc_unity"]
+	path = Assets/vtc_unity
+	url = https://github.com/Field-Robotics-Japan/vtc_unity.git
+
+[submodule "Assets/UnitySensorsROS"]
+	path = Assets/UnitySensorsROS
+	url = https://github.com/Field-Robotics-Japan/UnitySensorsROS.git
+[submodule "Assets/UnitySensors"]
+	path = Assets/UnitySensors
+	url = https://github.com/Field-Robotics-Japan/UnitySensors.git

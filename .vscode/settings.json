@@ -1,0 +1,4 @@
+{
+    "ros.distro": "melodic",
+    "git.ignoreLimitWarning": true
+}
