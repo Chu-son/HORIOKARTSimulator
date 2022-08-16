@@ -128,12 +128,12 @@ public class OdomPublisher : MonoBehaviour
 
         yaw = Mathf.Atan2(Mathf.Sin(yaw), Mathf.Cos(yaw));
 
-//        Debug.Log($"vel :{robotVelocity}");
-        Debug.Log($"yaw rad:{yaw}");
-        Debug.Log($"yaw deg:{yaw * Mathf.Rad2Deg}");
-        Debug.Log($"left, right angle deg:{leftHinge.jointPosition[0] * Mathf.Rad2Deg}, {rightHinge.jointPosition[0] * Mathf.Rad2Deg}");
-        Debug.Log($"left, right vel:{leftHinge.jointVelocity[0] * Mathf.Rad2Deg}, {rightHinge.jointVelocity[0] * Mathf.Rad2Deg}");
-        Debug.Log($"left, right vel?:{(leftHinge.jointPosition[0] - leftPrePos) * Mathf.Rad2Deg / dt}, {(rightHinge.jointPosition[0] - rightPrePos) * Mathf.Rad2Deg / dt}");
+        //Debug.Log($"vel :{robotVelocity}");
+        //Debug.Log($"yaw rad:{yaw}");
+        //Debug.Log($"yaw deg:{yaw * Mathf.Rad2Deg}");
+        //Debug.Log($"left, right angle deg:{leftHinge.jointPosition[0] * Mathf.Rad2Deg}, {rightHinge.jointPosition[0] * Mathf.Rad2Deg}");
+        //Debug.Log($"left, right vel:{leftHinge.jointVelocity[0] * Mathf.Rad2Deg}, {rightHinge.jointVelocity[0] * Mathf.Rad2Deg}");
+        //Debug.Log($"left, right vel?:{(leftHinge.jointPosition[0] - leftPrePos) * Mathf.Rad2Deg / dt}, {(rightHinge.jointPosition[0] - rightPrePos) * Mathf.Rad2Deg / dt}");
 
         leftPrePos = leftHinge.jointPosition[0];
         rightPrePos = rightHinge.jointPosition[0];

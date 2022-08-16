@@ -1,0 +1,34 @@
+{
+    "name": "Player",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "1292bd41-480f-47ad-bbe8-f637becf6ac1",
+            "actions": [
+                {
+                    "name": "CameraXY",
+                    "type": "Value",
+                    "id": "83df0b2a-733b-44c7-85e4-433fc9fca196",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a7482ce5-4513-483d-a8ec-6774980ba0a0",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraXY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
