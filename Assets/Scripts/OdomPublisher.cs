@@ -30,14 +30,16 @@ public class OdomPublisher : MonoBehaviour
 
     bool ShouldPublishMessage => Clock.NowTimeInSeconds > m_LastPublishTimeSeconds + PublishPeriodSeconds;
 
-    public string rightWheelName = "right_wheel_link";
-    public string leftWheelName = "left_wheel_link";
+    //public string rightWheelName = "right_wheel_link";
+    //public string leftWheelName = "left_wheel_link";
     private float rightWheelRadius;
     private float leftWheelRadius;
     private float wheelSeparation;
 
-    private GameObject rightWheel;
-    private GameObject leftWheel;
+    public GameObject rightWheel;
+    public GameObject leftWheel;
+    //private GameObject rightWheel;
+    //private GameObject leftWheel;
     private ArticulationBody rightHinge;
     private ArticulationBody leftHinge;
 
@@ -61,8 +63,8 @@ public class OdomPublisher : MonoBehaviour
 
     void Start()
     {
-        rightWheel = GameObject.Find(rightWheelName);
-        leftWheel = GameObject.Find(leftWheelName);
+        //rightWheel = GameObject.Find(rightWheelName);
+        //leftWheel = GameObject.Find(leftWheelName);
 
         Debug.Log("rightWheel: " + rightWheel.name);
         Debug.Log("leftWheel: " + leftWheel.name);
