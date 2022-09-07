@@ -52,8 +52,11 @@ public class OdomPublisher : MonoBehaviour
     private float pub_delta_time;
     private float d_time = 0.0f;
 
-    public float noize_rate = 0.0f;
-    public float noize_max = 200f;
+    public float rightBiasRate = 1.1f;
+    public float leftBiasRate = 1.0f;
+
+    public float rightNoizeRate = 1.1f;
+    public float leftNoizeRate = 1.1f;
 
     private HeaderMsgUpdater odomHeaderUpdater;
 
@@ -70,9 +73,9 @@ public class OdomPublisher : MonoBehaviour
         Debug.Log("leftWheel: " + leftWheel.name);
 
         TwistWheelController rightWheelScript = rightWheel.GetComponent<TwistWheelController>();
-        rightWheelRadius = rightWheelScript.wheelRadius;
+        rightWheelRadius = rightWheelScript.wheelRadius * rightBiasRate;
         TwistWheelController leftWheelScript = leftWheel.GetComponent<TwistWheelController>();
-        leftWheelRadius = leftWheelScript.wheelRadius;
+        leftWheelRadius = leftWheelScript.wheelRadius * leftBiasRate;
 
         Debug.Log("rightWheelRadius: " + rightWheelRadius);
         Debug.Log("leftWheelRadius: " + leftWheelRadius);
