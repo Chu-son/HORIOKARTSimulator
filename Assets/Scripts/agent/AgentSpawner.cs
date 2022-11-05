@@ -43,7 +43,11 @@ public class AgentSpawner : MonoBehaviour
             target = hit.position;
         }
 
-        Instantiate(agent, target, Quaternion.identity);
+        GameObject obj = Instantiate(agent, target, Quaternion.identity);
+        AgentMove am = obj.GetComponent<AgentMove>();
+        am.x_max = x_max;
+        am.z_max = z_max;
+        am.central = central;
 
     }
 

@@ -21,6 +21,9 @@ public class OdomPublisher : MonoBehaviour
     public string topicName = "/odom";
     [SerializeField]
     public string frameId = "odom";
+
+    [SerializeField]
+    public bool isPublish = true;
     
     double m_LastPublishTimeSeconds;
 
@@ -154,7 +157,7 @@ public class OdomPublisher : MonoBehaviour
             //         nanosec = timestamp.NanoSeconds,
             //     }
             // };
-        if(ShouldPublishMessage){
+        if(ShouldPublishMessage && isPublish){
             message.header = odomHeaderUpdater.update();
             message.pose.pose.position = new PointMsg(x, y, 0);
             message.pose.pose.orientation = GetQuaternionMsgFromRPY(0, 0, -yaw);

@@ -11,8 +11,8 @@ public class AgentMove : MonoBehaviour
     public Transform central;
     private NavMeshAgent agent;
 
-    [SerializeField] float x_max = 30;
-    [SerializeField] float z_max = 30;
+    [SerializeField] public float x_max = 30;
+    [SerializeField] public float z_max = 30;
 
     [SerializeField] float stop_time_max = 5;
 
@@ -22,6 +22,9 @@ public class AgentMove : MonoBehaviour
     private float time_counter = 0;
     private float stop_time = 0;
     
+    private bool is_close = false;
+    private GameObject robot = null;
+
     Vector3 getRandomPoint()
     {
         float posX = Random.Range(-1 * x_max, x_max);
@@ -51,13 +54,31 @@ public class AgentMove : MonoBehaviour
         agent.isStopped = false;
     }
 
+    void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("robot"))
+        {
+            Debug.Log("onTriggerEnter");
+            is_close = true;
+            robot = other.gameObject;
+        }
+    }
+    void OnTriggerExit(Collider other) {
+        if(other.CompareTag("robot"))
+        {
+            Debug.Log("onTriggerExit");
+            is_close = false;
+            robot = null;
+        }
+        
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
         agent.autoBraking = false;
-        agent.updateRotation = false;
+        //agent.updateRotation = false;
 
 
         setTargetPoint();
@@ -65,6 +86,16 @@ public class AgentMove : MonoBehaviour
 
     void Update()
     {
+        if(is_close && robot != null)
+        {
+            Vector3 robo_dir = robot.transform.position - agent.transform.position;
+            float angle = Vector3.Angle(robo_dir, agent.transform.forward);
+            if(angle < 45)
+            {
+                agent.isStopped = true;
+            }
+        }
+
         if(agent.isStopped)
         {
             time_counter += Time.deltaTime;

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: unitychan
       objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -78,6 +82,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 3}
   m_PrefabInstance: {fileID: 6386352776337299964}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &-338045677058068714
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386352776337399548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &574978337788124340
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386352776337399548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &4965061209077933455
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -99,7 +131,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &4965061209077933461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13214bc47ae784a18b075480ec2963e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  central: {fileID: 5058933155102577947, guid: 25d139cf1bd69271f9f41cdc943c41d8, type: 3}
-  x_max: 30
-  z_max: 30
+  central: {fileID: 6156912226574093341, guid: b09b0cb521cf9ec20b0cac9baca4b829, type: 3}
+  x_max: 15
+  z_max: 100
   stop_time_max: 5
