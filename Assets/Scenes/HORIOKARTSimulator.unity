@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -5396,7 +5397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &260820337
 Transform:
   m_ObjectHideFlags: 0
@@ -5465,6 +5466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -8497,7 +8499,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389437204}
-  m_LocalRotation: {x: 0.11949951, y: 0.034386568, z: -0.004141357, w: 0.99223}
+  m_LocalRotation: {x: 0.11949952, y: 0.03438656, z: -0.004141356, w: 0.99222994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9313,6 +9315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -14055,6 +14058,7 @@ GameObject:
   - component: {fileID: 823293372}
   - component: {fileID: 823293371}
   - component: {fileID: 823293375}
+  - component: {fileID: 823293376}
   m_Layer: 0
   m_Name: base_link
   m_TagString: robot
@@ -14196,6 +14200,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &823293376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823293369}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eb136c6c0daa1f20a9629f7ca5d5d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  odomTopicName: /odom
+  velTopicName: /real/cmd_vel
 --- !u!1001 &826161308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14404,7 +14422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PublishRateHz: 10
-  topicName: /wheel/odom
+  topicName: /odom
   frameId: odom
   isPublish: 1
   rightWheel: {fileID: 1152465800}
@@ -15222,6 +15240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -16533,7 +16552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.11949953, y: 0.03438657, z: -0.0041413587, w: 0.99222994}
+  m_LocalRotation: {x: 0.11949953, y: 0.03438656, z: -0.0041413573, w: 0.99222994}
   m_LocalPosition: {x: -0.41537118, y: 2.0531597, z: -5.985605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -18318,6 +18337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -18552,6 +18572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -55183,7 +55204,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557492008}
-  m_LocalRotation: {x: 0.1375279, y: 0.03430557, z: -0.004766147, w: 0.9898922}
+  m_LocalRotation: {x: 0.1375279, y: 0.03430553, z: -0.0047661415, w: 0.9898922}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -55449,6 +55470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316
@@ -67494,6 +67516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  topicName: /cmd_vel
   maxLinearSpeed: 4
   maxRotationalSpeed: 1
   wheelRadius: 0.20316

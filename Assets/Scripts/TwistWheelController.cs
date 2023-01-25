@@ -17,6 +17,8 @@ namespace HJ.Simulator
             Right
         }
         [SerializeField] WheelType type;
+        [SerializeField]
+        public string topicName = "/cmd_vel";
         private bool isMessageReceived;
 
         private ArticulationBody wheel;
@@ -43,7 +45,7 @@ namespace HJ.Simulator
             SetParameters(wheel);
 
             ros = ROSConnection.GetOrCreateInstance();
-            ros.Subscribe<TwistMsg>("cmd_vel", ReceiveROSCmd);
+            ros.Subscribe<TwistMsg>(topicName, ReceiveROSCmd);
         }
 
         void ReceiveROSCmd(TwistMsg cmdVel)
