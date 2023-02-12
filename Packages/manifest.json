@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.synesthesias.plateau-unity-sdk": "file:/home/chuson/Programs/Unity/resource/PLATEAU-SDK-for-Unity-v0.6.0.tgz",
     "com.unity.burst": "1.6.6",
     "com.unity.cinemachine": "2.6.15",
     "com.unity.collab-proxy": "1.17.7",

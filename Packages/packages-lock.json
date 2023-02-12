@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.autodesk.fbx": {
+      "version": "4.1.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.synesthesias.plateau-unity-sdk": {
+      "version": "file:/home/chuson/Programs/Unity/resource/PLATEAU-SDK-for-Unity-v0.6.0.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.unity.formats.fbx": "4.1.2",
+        "com.unity.test-framework": "1.1.31"
+      }
+    },
     "com.unity.burst": {
       "version": "1.6.6",
       "depth": 0,
@@ -37,6 +53,16 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.formats.fbx": {
+      "version": "4.1.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.5.2",
+        "com.autodesk.fbx": "4.1.1"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
@@ -149,8 +175,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.4.8",
-      "depth": 0,
+      "version": "1.5.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.director": "1.0.0",
