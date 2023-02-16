@@ -30441,6 +30441,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3193872346171169301, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193872346171169303, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193872346171169303, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3193872346723805234, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.03430557
@@ -30451,11 +30463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347278558214, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.034456015
+      value: 0.03445605
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347278558214, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0035168505
+      value: -0.003516854
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347715685902, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30475,6 +30487,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
+--- !u!1 &3193872347333335321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3193872346171169299, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
+  m_PrefabInstance: {fileID: 3193872347333335320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3193872347333335322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193872347333335321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9e2cb3313327f2eb2800f1ef310a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _topicName: /camera/depth
+  _frameId: depth_camera
+--- !u!114 &3193872347333335323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193872347333335321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a142d6596113852739898342e072d475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _width: 640
+  _height: 480
+  _quality: 50
+  _scanRate: 30
+  data: 
+  texture: {fileID: 0}
 --- !u!1001 &6763692790592985440
 PrefabInstance:
   m_ObjectHideFlags: 0
