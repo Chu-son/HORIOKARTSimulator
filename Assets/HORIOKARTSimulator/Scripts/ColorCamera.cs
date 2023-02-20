@@ -10,7 +10,8 @@ namespace HJ.Simulator
         [HideInInspector] public int width;
         [HideInInspector] public int height;
 
-        private Camera _camera;
+        [HideInInspector]
+        public Camera _camera { get; private set; }
         private Rect _rect;
 
         private RenderTexture colorTexture;
@@ -25,7 +26,7 @@ namespace HJ.Simulator
             this.colorTexture = new RenderTexture(this.width, this.height, 24);
             this._rect = new Rect(0, 0, this.width, this.height);
 
-            this._camera  = GetComponent<Camera>();
+            this._camera = GetComponent<Camera>();
 
             this.texture = new Texture2D(this.width, this.height, TextureFormat.RGB24, false);
             // this.texture = new Texture2D(this.width, this.height, TextureFormat.RGBA32, false);
@@ -34,7 +35,8 @@ namespace HJ.Simulator
 
         public void UpdateImage()
         {
-            if (this.texture != null ) {
+            if (this.texture != null)
+            {
                 this._camera.targetTexture = this.colorTexture;
                 this._camera.Render();
                 RenderTexture.active = this.colorTexture;

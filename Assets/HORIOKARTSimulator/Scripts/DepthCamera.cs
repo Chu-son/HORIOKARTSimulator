@@ -27,11 +27,16 @@ namespace HJ.Simulator
             if (!this.uberReplacementShader)
                 this.uberReplacementShader = Shader.Find("Hidden/UberReplacement");
 
-            this._mainCamera  = GetComponent<Camera>();
+            this._mainCamera = GetComponent<Camera>();
             this._camera = CreateHiddenCamera("depth");
             this._camera.RemoveAllCommandBuffers();
             this._camera.CopyFrom(this._mainCamera);
             this._camera.targetDisplay = 3;
+
+            this._camera.nearClipPlane = 0.2f;
+            this._camera.farClipPlane = 10f;
+            this._camera.fieldOfView = 60f;
+
             SetupCameraWithReplacementShader(this._camera, this.uberReplacementShader, 2, Color.black);
 
             // this._camera.targetTexture = this.depthTexture;
@@ -47,13 +52,14 @@ namespace HJ.Simulator
             this.texture = new Texture2D(this.width, this.height, TextureFormat.RFloat, false);
             // this.texture = new Texture2D(this.width, this.height, TextureFormat.RGB24, false);
             // this.texture = new Texture2D(this.width, this.height, TextureFormat.RGBA32, false);
-            Debug.Log(SystemInfo.SupportsTextureFormat(TextureFormat.RFloat));
+            // Debug.Log(SystemInfo.SupportsTextureFormat(TextureFormat.RFloat));
 
         }
 
         public void UpdateImage()
         {
-            if (this.texture != null ) {
+            if (this.texture != null)
+            {
                 // this._camera.depthTextureMode = DepthTextureMode.Depth;
                 RenderTexture.active = this.depthTexture;
                 this._camera.targetTexture = this.depthTexture;
