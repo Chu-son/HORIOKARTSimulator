@@ -67,7 +67,7 @@ namespace HJ.Simulator
             this._colorMessage.width = (uint)this.width;
 
             // setup ROS
-            this._ros = ROSConnection.instance;
+            this._ros = ROSConnection.GetOrCreateInstance();
             this._ros.RegisterPublisher<ImageMsg>(this._depthTopicName);
             this._ros.RegisterPublisher<ImageMsg>(this._colorTopicName);
             this._ros.RegisterPublisher<CameraInfoMsg>(this._cameraInfoTopicName);
@@ -115,7 +115,7 @@ namespace HJ.Simulator
             this._depthMessage.data = this._depthCamera.texture.GetRawTextureData();
             // this._depthMessage.data = this._depthCamera.texture.EncodeToPNG();
 
-            this._ros.Send(this._depthTopicName, this._depthMessage);
+            this._ros.Publish(this._depthTopicName, this._depthMessage);
         }
 
         private void PublishColorImage()
@@ -123,7 +123,7 @@ namespace HJ.Simulator
             this._colorCamera.UpdateImage();
             // this._colorMessage.data = this._colorCamera.texture.EncodeToPNG();
             this._colorMessage.data = this._colorCamera.texture.GetRawTextureData();
-            this._ros.Send(this._colorTopicName, this._colorMessage);
+            this._ros.Publish(this._colorTopicName, this._colorMessage);
         }
     }
 }
