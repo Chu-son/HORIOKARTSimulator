@@ -808,6 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 855534674}
+  - component: {fileID: 855534675}
   m_Layer: 0
   m_Name: Blocks
   m_TagString: Untagged
@@ -842,6 +843,18 @@ Transform:
   m_Father: {fileID: 260820337}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855534675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855534673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecee9e345db1cd9b1ba987adbb00eb95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &862610852
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +868,7 @@ GameObject:
   - component: {fileID: 862610856}
   - component: {fileID: 862610855}
   - component: {fileID: 862610854}
+  - component: {fileID: 862610858}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -954,6 +968,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862610852}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &862610858
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862610852}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &956893855
 GameObject:
   m_ObjectHideFlags: 0
@@ -30058,6 +30088,7 @@ GameObject:
   - component: {fileID: 1867588660}
   - component: {fileID: 1867588659}
   - component: {fileID: 1867588658}
+  - component: {fileID: 1867588662}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -30157,6 +30188,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867588656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1867588662
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867588656}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1883715364
 GameObject:
   m_ObjectHideFlags: 0
@@ -30538,19 +30585,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347715685902, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99222994
+      value: 0.99223
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347715685902, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11949952
+      value: 0.11949951
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347715685902, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.03438656
+      value: 0.034386568
       objectReference: {fileID: 0}
     - target: {fileID: 3193872347715685902, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.004141356
+      value: -0.004141357
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98a67b3bd04079c6bb21fe9277f8d23a, type: 3}
@@ -30717,11 +30764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8981108297563892016, guid: f7479c418d43d76c6959d8870c10ada8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.03438656
+      value: 0.03438657
       objectReference: {fileID: 0}
     - target: {fileID: 8981108297563892016, guid: f7479c418d43d76c6959d8870c10ada8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0041413573
+      value: -0.0041413587
       objectReference: {fileID: 0}
     - target: {fileID: 8981108297563892016, guid: f7479c418d43d76c6959d8870c10ada8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
