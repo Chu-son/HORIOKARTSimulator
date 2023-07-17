@@ -17,9 +17,9 @@ namespace HJ.Simulator
         {
             timestamp = new TimeStamp(Clock.time);
 
-            this.seq = 0;
+            // this.seq = 0;
             this.stamp = new TimeMsg{
-                sec = timestamp.Seconds,
+                sec = (int)timestamp.Seconds,
                 nanosec = timestamp.NanoSeconds,
             };
             this.frame_id = frame_id;
@@ -28,9 +28,9 @@ namespace HJ.Simulator
         public HeaderMsg update()
         {
             timestamp = new TimeStamp(Clock.time);
-            this.seq++;
+            // this.seq++;
             this.stamp = new TimeMsg{
-                sec = timestamp.Seconds,
+                sec = (int)timestamp.Seconds,
                 nanosec = timestamp.NanoSeconds,
             };
             return this;

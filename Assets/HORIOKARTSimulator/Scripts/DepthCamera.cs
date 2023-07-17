@@ -18,9 +18,11 @@ namespace HJ.Simulator
         private Camera _camera;
         private Rect _rect;
 
-        private RenderTexture depthTexture;
+        public RenderTexture depthTexture;
 
         [HideInInspector] public Texture2D texture;
+
+        [HideInInspector] public byte[] depthData;
 
         public void Init(int width, int height)
         {
@@ -45,7 +47,7 @@ namespace HJ.Simulator
             this.height = height;
 
             this.depthTexture = new RenderTexture(this.width, this.height, 24, RenderTextureFormat.RFloat);
-            // this.depthTexture = new RenderTexture(this.width, this.height, 24, RenderTextureFormat.Default);
+            // this.depthTexture = new RenderTexture(this.width, this.height, 16, RenderTextureFormat.Depth);
             this._rect = new Rect(0, 0, this.width, this.height);
 
 
@@ -83,8 +85,30 @@ namespace HJ.Simulator
                         pixels[index2] = temp;
                     }
                 }
+
+                // テクスチャデータからDepthImageの配列を作成
+                byte[] depthData = new byte[width * height * 2]; // 16UC1フォーマットなので2バイト
+
+                for (int i = 0; i < pixels.Length; i++)
+                {
+                    // Unityの深度値を16ビットに変換して配列に格納
+                    // ushort depthValue = (ushort)(pixels[i].r * 65535); // 0.0-1.0の範囲を0-65535の範囲にスケーリング
+                    // 0.0-1.0の範囲をnearClipPlane-farClipPlaneの範囲にスケーリング
+                    // ushort depthValue = (ushort)((pixels[i].r * (this._camera.farClipPlane - this._camera.nearClipPlane) + this._camera.nearClipPlane) * 1000);
+
+                    ushort depthValue = (ushort)(pixels[i].r * this._camera.farClipPlane * 1000);
+                    // ushort depthValue = (ushort)(pixels[i].grayscale * this._camera.farClipPlane * 1000);
+
+                    byte[] bytes = System.BitConverter.GetBytes(depthValue);
+                    depthData[i * 2] = bytes[0];
+                    depthData[i * 2 + 1] = bytes[1];
+                }
+
+                this.texture.Resize(this.width, this.height);
                 this.texture.SetPixels(pixels);
                 this.texture.Apply();
+
+                this.depthData = depthData;
             }
         }
 
@@ -110,14 +134,6 @@ namespace HJ.Simulator
             cam.allowHDR = false;
             cam.allowMSAA = false;
         }
-
-        // private void OnGUI() {
-        //     Texture2D t = new Texture2D(this.width, this.height);
-        //     // t.LoadImage(this.data);
-        //     // t.LoadImage(this.texture.GetRawTextureData());
-        //     GUI.Box(new Rect(Screen.width - 100, Screen.height -100, 90, 90), this.texture);
-        //     // GUI.Box(new Rect(Screen.width - 100, Screen.height -100, 90, 90), t);
-        // }
 
     }
 }

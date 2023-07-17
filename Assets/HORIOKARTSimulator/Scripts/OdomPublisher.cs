@@ -52,7 +52,7 @@ public class OdomPublisher : MonoBehaviour
     private float yaw;
 
     //public float publish_rate = 10.0f; //Hz
-    private float pub_delta_time;
+    private double pub_delta_time;
     private float d_time = 0.0f;
 
     public float rightBiasRate = 1.1f;
@@ -74,6 +74,8 @@ public class OdomPublisher : MonoBehaviour
 
         Debug.Log("rightWheel: " + rightWheel.name);
         Debug.Log("leftWheel: " + leftWheel.name);
+
+        pub_delta_time = 1.0f / m_PublishRateHz;
 
         TwistWheelController rightWheelScript = rightWheel.GetComponent<TwistWheelController>();
         rightWheelRadius = rightWheelScript.wheelRadius * rightBiasRate;
@@ -116,23 +118,19 @@ public class OdomPublisher : MonoBehaviour
     void PublishMessage()
     {
         float dt = Time.deltaTime;
-        // float omegaL = leftHinge.jointVelocity[0];// [rad/s]
-        // float omegaR = rightHinge.jointVelocity[0];// [rad/s]
-        // float omegaL = (float)Math.Ceiling(leftHinge.jointVelocity[0] * 100)/100;// [rad/s]
-        // float omegaR = (float)Math.Ceiling(rightHinge.jointVelocity[0] * 100)/100;// [rad/s]
 
-        float omegaL = (leftHinge.jointPosition[0] - leftPrePos)/dt;
-        float omegaR = (rightHinge.jointPosition[0] - rightPrePos)/dt;
+        float omegaL = (leftHinge.jointPosition[0] - leftPrePos) * leftWheelRadius ;
+        float omegaR = (rightHinge.jointPosition[0] - rightPrePos) * rightWheelRadius ;
 
-        omegaL = leftWheelRadius * omegaL; // [m/s]
-        omegaR = rightWheelRadius * omegaR;
+        // omegaL = leftWheelRadius * omegaL; // [m/s]
+        // omegaR = rightWheelRadius * omegaR;
 
         float robotVelocity = (omegaR + omegaL) / 2.0f;
         float robotYawrate = (omegaL - omegaR) / wheelSeparation;
         
-        x += robotVelocity * dt * Mathf.Cos(-yaw);
-        y += robotVelocity * dt * Mathf.Sin(-yaw);
-        yaw += robotYawrate * dt;
+        x += robotVelocity * Mathf.Cos(-yaw);
+        y += robotVelocity * Mathf.Sin(-yaw);
+        yaw += robotYawrate ;
 
         yaw = Mathf.Atan2(Mathf.Sin(yaw), Mathf.Cos(yaw));
 
@@ -147,17 +145,7 @@ public class OdomPublisher : MonoBehaviour
         rightPrePos = rightHinge.jointPosition[0];
 
         d_time += dt;
-        // if(d_time >= pub_delta_time){
-            // message.header = new HeaderMsg
-            // {
-            //     frame_id = frameId,
-            //     stamp = new TimeMsg
-            //     {
-            //         sec = timestamp.Seconds,
-            //         nanosec = timestamp.NanoSeconds,
-            //     }
-            // };
-        if(ShouldPublishMessage && isPublish){
+        if(d_time >= pub_delta_time && isPublish){
             message.header = odomHeaderUpdater.update();
             message.pose.pose.position = new PointMsg(x, y, 0);
             message.pose.pose.orientation = GetQuaternionMsgFromRPY(0, 0, -yaw);
@@ -167,7 +155,6 @@ public class OdomPublisher : MonoBehaviour
             m_ROS.Publish(topicName, message);
 
             d_time = 0.0f;
-            m_LastPublishTimeSeconds = Clock.FrameStartTimeInSeconds;
         }
 
     }

@@ -57,7 +57,7 @@ public class AgentMove : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("robot"))
         {
-            Debug.Log("onTriggerEnter");
+            // Debug.Log("onTriggerEnter");
             is_close = true;
             robot = other.gameObject;
         }
@@ -65,7 +65,7 @@ public class AgentMove : MonoBehaviour
     void OnTriggerExit(Collider other) {
         if(other.CompareTag("robot"))
         {
-            Debug.Log("onTriggerExit");
+            // Debug.Log("onTriggerExit");
             is_close = false;
             robot = null;
         }
